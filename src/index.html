@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="extensions.js"></script>
+    <title>vector</title>
+</head>
+
+<body>
+    <div style="overflow-x:scroll;width:500px;">
+        <canvas id="canvas">
+
+        </canvas>
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript">
+  
+
+</script>
+
+<script type="text/javascript">
+    const EventType = {
+        OrderBatch: "OrderBatch",
+        Team: "Team",
+        Stop: "Stop"
+    };
+    var x = new On(2017, 02, 03, 12, 30, 00);
+    var data = [
+        new Event(EventType.OrderBatch, new On(2017, 02, 03, 12, 30, 00), new On(2017, 02, 03, 12, 40, 00), { id: 1021 }),
+        new Event(EventType.OrderBatch, new On(2017, 02, 03, 12, 41, 00), new On(2017, 02, 03, 12, 50, 00), { id: 1022 }),
+        new Event(EventType.Team, new On(2017, 02, 03, 12, 31, 00), new On(2017, 02, 03, 12, 45, 00), { id: 13 }),
+        new Event(EventType.Stop, new On(2017, 02, 03, 12, 28, 00), new On(2017, 02, 03, 12, 33, 00), { id: 3211 })
+    ];
+    var init = function () {
+        var graph = new Graph(
+            new Canvas("canvas"),
+            new DataCollection(data)
+        );
+        graph.draw();
+    }
+    window.onload = function () {
+        init();
+    }
+
+</script>
