@@ -7,10 +7,10 @@ Array.prototype.Min = function () {
     });
     return minValue;
 }
-Array.prototype.Max = function () {
+Array.prototype.Max = function (selector) {
     var maxValue = this[0];
     this.forEach(function (item) {
-        if (item.Compare(maxValue) == 1) {
+        if (item.Compare(maxValue, selector) == 1) {
             maxValue = item;
         }
     });
@@ -30,7 +30,8 @@ Array.prototype.Group = function (predicate, selector) {
     });
     var result = [];
     for (var group in b) {
-        result.push(selector(b[group]));
+        if (b.hasOwnProperty(group))
+            result.push(selector(b[group]));
     }
     return result;
 }
